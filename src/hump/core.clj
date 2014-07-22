@@ -1,25 +1,28 @@
 (ns hump.core
-  (:gen-class))
+  (:gen-class)
+  (:require [hump.deploy :as deploy]))
 
 (def sites (atom {}))
+(def stages (atom {}))
 
-(def default-props
+(def default-site-props
   {:repository nil
    :branch "master"
    :servers []
    :deploy_to nil})
 
 (defmacro defsite [sitename props]
-  `(swap! sites assoc (keyword '~sitename) (merge default-props ~props)))
+  `(swap! sites assoc (keyword '~sitename) (merge default-site-props ~props)))
 
-(defn deploy []
-  (println "Nothing to do yet..."))
+(defmacro defstage [stage props]
+  `(swap! stages assoc (keyword '~stage) ~props))
 
 (defn -main
-  [config]
-  (println (str "Loading configuration from " config))
+  [stage task]
   (try
     (do
-      (load-file config)
-      (deploy))
+      (let [config (or (System/getenv "HUMP_CONIFG") "./deploy.clj")]
+        (println (str "Loading configuration from " config))
+        (load-file config)
+        (deploy/start @sites @stage)))
     (catch Exception e (str "Caught exception " (.getMessage e)))))
