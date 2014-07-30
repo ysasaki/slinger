@@ -1,21 +1,8 @@
 (ns hump.core
   (:gen-class)
-  (:require [hump.deploy :as deploy]))
-
-(def sites (atom {}))
-(def stages (atom {}))
-
-(def default-site-props
-  {:repository nil
-   :branch "master"
-   :servers []
-   :deploy_to nil})
-
-(defmacro defsite [sitename props]
-  `(swap! sites assoc (keyword '~sitename) (merge default-site-props ~props)))
-
-(defmacro defstage [stage props]
-  `(swap! stages assoc (keyword '~stage) ~props))
+  (:require [hump.deploy :as deploy]
+            [hump.tasks :as tasks]
+            [hump.stages :as stages]))
 
 (defn -main
   [stage task]
@@ -24,5 +11,5 @@
       (let [config (or (System/getenv "HUMP_CONIFG") "./deploy.clj")]
         (println (str "Loading configuration from " config))
         (load-file config)
-        (deploy/start @sites @stage)))
+        (deploy/start (stages/get-stage (keyword stage)) (tasks/get-task task))))
     (catch Exception e (str "Caught exception " (.getMessage e)))))

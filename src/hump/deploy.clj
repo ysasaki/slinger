@@ -1,9 +1,8 @@
 (ns hump.deploy)
 
-
 (defn start
   "Starts deployment in the order."
-  [sites stages])
+  [site task])
 
 (defn setup
   "Setups required directories and files."
@@ -28,6 +27,3 @@
 (defn restart
   "Restarts an application server."
   [])
-
-(def deploy-order
-  '(setup update update-code finalize-update symlink restart))
