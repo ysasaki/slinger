@@ -1,3 +1,3 @@
-(ns hump.test.core
+(ns slinger.test.core
   (:require [clojure.test :refer :all]
-            [hump.core :as hc]))
+            [slinger.core :as hc]))

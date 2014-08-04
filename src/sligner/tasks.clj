@@ -1,4 +1,4 @@
-(ns hump.tasks)
+(ns slinger.tasks)
 
 (def tasks (atom {:setup []
                   :update-code []

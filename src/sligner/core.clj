@@ -1,8 +1,8 @@
-(ns hump.core
+(ns slinger.core
   (:gen-class)
-  (:require [hump.deploy :as deploy]
-            [hump.tasks :as tasks]
-            [hump.stages :as stages]))
+  (:require [slinger.deploy :as deploy]
+            [slinger.tasks :as tasks]
+            [slinger.stages :as stages]))
 
 (defn -main
   [stage task]

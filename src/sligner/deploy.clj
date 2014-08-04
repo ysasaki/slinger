@@ -1,4 +1,4 @@
-(ns hump.deploy)
+(ns slinger.deploy)
 
 (defn start
   "Starts deployment in the order."

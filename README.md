@@ -1,16 +1,16 @@
-# hump
+# slinger
 
 Simple deployment tool written in Clojure.
 
 ## Installation
 
-Download from http://github.com/ysasaki/hump
+Download from http://github.com/ysasaki/slinger
 
 ## Usage
 
 FIXME: explanation
 
-    $ java -jar hump-0.1.0-standalone.jar [args]
+    $ java -jar slinger-0.1.0-standalone.jar [args]
 
 ## Options
 

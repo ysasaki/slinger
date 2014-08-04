@@ -1,4 +1,4 @@
-(ns hump.run)
+(ns slinger.run)
 
 (defn run-localy
   "Runs given command in localhost."

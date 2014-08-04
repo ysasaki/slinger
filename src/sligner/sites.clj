@@ -1,4 +1,4 @@
-(ns hump.sites)
+(ns slinger.sites)
 
 (def sites (atom {}))
 

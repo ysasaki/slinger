@@ -1,4 +1,4 @@
-(ns hump.stages)
+(ns slinger.stages)
 
 (def stages (atom {}))
 
