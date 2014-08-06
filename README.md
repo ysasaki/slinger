@@ -1,6 +1,10 @@
-# slinger
+# Slinger
 
 Simple deployment tool written in Clojure.
+
+## WARNING
+
+THIS SOFTWARE IS UNDER DEVELOPMENT AND INTERFACES ARE SUBJECT TO CHNAGE.
 
 ## Installation
 
